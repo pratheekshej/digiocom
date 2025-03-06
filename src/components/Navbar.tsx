@@ -1,6 +1,7 @@
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Icons from "./Icons";
+import NavItems from "./NavItems";
 
 const Navbar = () => {
     return (
@@ -14,6 +15,10 @@ const Navbar = () => {
                                 <Link href={'/'}>
                                     <Icons.logo className="w-10 h-10" />
                                 </Link>
+                            </div>
+                            {/* Desktop Nav */}
+                            <div className="hidden lg:block z-50 lg:self-stretch lg:ml-8">
+                                <NavItems />
                             </div>
                         </div>
                     </div>
