@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <>
       <MaxWidthWrapper>
-        <div className="flex flex-col items-center mx-auto py-20 max-w-3xl text-center">
+        <div className="flex flex-col items-center mx-auto py-16 max-w-3xl text-center">
           <h1 className="font-bold text-gray-800 text-4xl sm:text-6xl tracking-tight">
             Your space definition for high quality{' '}
             <span className="text-blue-600">Digital Assets</span>.

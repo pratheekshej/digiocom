@@ -8,28 +8,19 @@ import { useEffect, useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { ScrollArea } from "./ui/scroll-area";
 import { Separator } from "./ui/separator";
+import { formatPrice } from "@/lib/utils";
 
 const Cart = () => {
     // const { items } = useCart()
     const itemCount = 0; // items.length
-
     const [isMounted, setIsMounted] = useState<boolean>(false)
+    // const cartTotal = items.reduce((total, { product }) => total + product.price, 0)
+    const cartTotal = 0
+    const fee = 1
 
     useEffect(() => {
         setIsMounted(true)
     }, [])
-
-    /* const cartTotal = items.reduce(
-        (
-            total,
-            { product }
-        ) => total + product.price,
-        0
-    ) */
-
-    const cartTotal = 0
-
-    const fee = 1
 
     return (
         <Sheet>
@@ -69,14 +60,12 @@ const Cart = () => {
                                     <span className='flex-1'>
                                         Transaction Fee
                                     </span>
-                                    {/* <span>{formatPrice(fee)}</span> */}
-                                    <span>${fee}</span>
+                                    <span>{formatPrice(fee)}</span>
                                 </div>
                                 <div className='flex'>
                                     <span className='flex-1'>Total</span>
                                     <span>
-                                        ${(cartTotal + fee)}
-                                        {/* {formatPrice(cartTotal + fee)} */}
+                                        {formatPrice(cartTotal + fee)}
                                     </span>
                                 </div>
                             </div>
@@ -95,7 +84,7 @@ const Cart = () => {
                         </div>
                     </>
                 ) : (
-                    <div className='flex flex-col justify-start items-center space-y-1 pt-10 h-full'>
+                    <div className='flex flex-col justify-center items-center space-y-1 pt-10 h-full'>
                         <div
                             aria-hidden='true'
                             className='relative mb-4 w-60 h-60 text-muted-foreground'>
