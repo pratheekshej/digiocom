@@ -21,6 +21,7 @@ import {
 } from '@/lib/validators/account-credentials-validator'
 // import { trpc } from '@trpc/client'
 import { useRouter } from 'next/navigation'
+import { trpc } from '@/trpc/client'
 
 const SingUpPage = () => {
     const {
@@ -61,6 +62,9 @@ const SingUpPage = () => {
                 router.push('/verify-email?to=' + sentToEmail)
             },
         }) */
+
+    const { data } = trpc.anyApiRoute.useQuery()
+    console.log('data :> ', data)
 
     const onSubmit = ({
         email,

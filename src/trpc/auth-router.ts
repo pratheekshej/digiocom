@@ -21,8 +21,9 @@ export const authRouter = router({
                 },
             })
 
-            if (users.length !== 0)
+            if (users.length !== 0) {
                 throw new TRPCError({ code: 'CONFLICT' })
+            }
 
             await payload.create({
                 collection: 'users',
@@ -48,8 +49,9 @@ export const authRouter = router({
                 token,
             })
 
-            if (!isVerified)
+            if (!isVerified) {
                 throw new TRPCError({ code: 'UNAUTHORIZED' })
+            }
 
             return { success: true }
         }),

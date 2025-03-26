@@ -8,7 +8,9 @@ import { paymentRouter } from './payment-router'
 export const appRouter = router({
     auth: authRouter,
     payment: paymentRouter,
-
+    anyApiRoute: publicProcedure.query(() => {
+        return 'Hello World!'
+    }),
     getInfiniteProducts: publicProcedure
         .input(
             z.object({
